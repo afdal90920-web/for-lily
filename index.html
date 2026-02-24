@@ -48,7 +48,6 @@ button:hover{
 .heart{
     position:fixed;
     top:-10px;
-    color:red;
     animation:fall linear infinite;
 }
 
@@ -74,13 +73,19 @@ button:hover{
     <button onclick="startSurprise()">Click Me 💖</button>
 </div>
 
-<audio id="music">
-    <source src="https://files.catbox.moe/7xq1k9.mp3" type="audio/mp3">
-</audio>
+<!-- YouTube Hidden Music -->
+<iframe id="musicFrame"
+width="0"
+height="0"
+src="https://www.youtube.com/embed/0tE7l9vJ7m0?enablejsapi=1"
+allow="autoplay">
+</iframe>
 
 <script>
 function startSurprise(){
-    document.getElementById("music").play();
+
+    let iframe = document.getElementById("musicFrame");
+    iframe.src += "&autoplay=1";
 
     for(let i=0;i<30;i++){
         let heart=document.createElement("div");
